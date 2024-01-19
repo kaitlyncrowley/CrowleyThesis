@@ -1,0 +1,15 @@
+#!/bin/tcsh
+#PBS -N osmRoadDownload
+#PBS -l nodes=1:bora:ppn=20
+#PBS -l walltime=24:00:00
+#PBS -j oe
+
+source "/usr/local/anaconda3-2021.05/etc/profile.d/conda.csh"
+module load anaconda3/2021.05
+module load python/usermodules
+unsetenv PYTHONPATH
+
+conda activate roadsFiltering
+
+cd /sciclone/geounder/gRoads2/scripts
+python osmRoadFiltering.py >& outputFilter.out
