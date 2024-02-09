@@ -42,6 +42,8 @@ client = Client(cluster)
 ###### Also need to finalize the best projection, but that should be easy to change
 # Right now, the distance that the function gives is in meters (based on Mollweide), but I believe Mollweide is equal area, not equal distance 
 ## However, I don't know if that matters as much since this task involves such small grid cells
+
+# Can I make the degurba point file into parquet?
 degurbaPoints = gpd.read_file('/Users/kaitlyncrowley/Desktop/Spring2024/HonorsThesis/urbanAreas/nepalDegurbaPoints.geojson')
 degurbaPoints = degurbaPoints.set_crs(crs="ESRI:54009", allow_override=True)
 roads = gpd.read_parquet('/Users/kaitlyncrowley/Desktop/Spring2024/HonorsThesis/cellDistance/nepalDrivingRoads.parquet')
